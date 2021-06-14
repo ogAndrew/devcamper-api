@@ -23,30 +23,30 @@ const BootcampSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    maxlength: [20, 'Phone number can not be longer than 20 characters'];
+    maxlength: [20, "Phone number can not be longer than 20 characters"],
   },
   email: {
     type: String,
     match: [
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
-        'Please add a valid email'
-    ]
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      "Please add a valid email",
+    ],
   },
   address: {
     type: String,
-    required: [true, 'Please add an address']
+    required: [true, "Please add an address"],
   },
   location: {
     // GeoJSON Point
     type: {
       type: String,
       enum: ["Point"],
-      required: true
+      // required: true,
     },
     coordinates: {
       type: [Number],
-      required: true,
-      index: '2dsphere'
+      // required: true,
+      index: "2dsphere",
     },
     formattedAddress: String,
     street: String,
@@ -56,48 +56,48 @@ const BootcampSchema = new mongoose.Schema({
     country: String,
   },
   careers: {
-     // Array of strings
-      type: [String],
-      required: true,
-      enum: [
-        'Web Development',
-        'Mobile Development',
-        'UI/UX',
-        'Data Science',
-        'Business',
-        'Other'
-      ]
+    // Array of strings
+    type: [String],
+    required: true,
+    enum: [
+      "Web Development",
+      "Mobile Development",
+      "UI/UX",
+      "Data Science",
+      "Business",
+      "Other",
+    ],
   },
   averageRating: {
     type: Number,
-    min: [1, 'Rating must be at least 1'],
-    max: [10, 'Rating cannot be more than 10'],
+    min: [1, "Rating must be at least 1"],
+    max: [10, "Rating cannot be more than 10"],
   },
   averageCost: Number,
   photo: {
     type: String,
-    default: 'no-photo.jpg'
+    default: "no-photo.jpg",
   },
   housing: {
     type: Boolean,
-    default: false
+    default: false,
   },
   jobAssistance: {
     type: Boolean,
-    default: false
+    default: false,
   },
   jobGuarantee: {
     type: Boolean,
-    default: false
+    default: false,
   },
   acceptGi: {
     type: Boolean,
-    default: false
+    default: false,
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model('Bootcamp', BootcampSchema);
+module.exports = mongoose.model("Bootcamp", BootcampSchema);
