@@ -9,4 +9,4 @@ const options = {
 
 const geocoder = nodeGeocoder(options);
 
-module.exports = geoCoder;
+module.exports = geocoder;
