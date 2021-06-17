@@ -32,6 +32,7 @@ const importData = async () => {
   console.log(courses);
   try {
     await Bootcamp.create(bootcamps);
+    await Course.create(courses);
 
     console.log("Data Imported...");
     process.exit();
