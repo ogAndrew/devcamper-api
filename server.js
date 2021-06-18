@@ -5,6 +5,7 @@ const logger = require("./middleware/loggerl");
 const morgan = require("morgan");
 const colors = require("colors");
 const fileupload = require("express-fileupload");
+const cookierParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
 const connectDB = require("./config/db");
 
@@ -23,6 +24,9 @@ const app = express();
 
 // Body parser
 app.use(express.json());
+
+// Cookier parser
+app.use(cookierParser);
 
 // Dev logging middleware
 if (process.env.NODE_ENV === "development") {
