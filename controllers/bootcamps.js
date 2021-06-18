@@ -44,6 +44,7 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
 // @route PUT /api/v1/bootcamps/:id
 // @access Private
 exports.updateBootcamp = asyncHandler(async (req, res, next) => {
+  console.log("here");
   const {
     body,
     params: { id },
